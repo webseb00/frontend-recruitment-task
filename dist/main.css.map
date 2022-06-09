@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"main.css","sourcesContent":[]}
+{"version":3,"sources":["main.scss","main.css"],"names":[],"mappings":"AAGA,KACE,eAJK,CAKL,UCFF","file":"main.css","sourcesContent":["$blue: blue;\r\n$white: #fff;\r\n\r\nbody {\r\n  background: $blue;\r\n  color: $white;\r\n}","body {\n  background: blue;\n  color: #fff;\n}"]}

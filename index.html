@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Sebastian Basiński - Recruitment task</title>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./dist/main.css">
     </head>
 
@@ -19,13 +19,24 @@
                         <div class="app-article__content">
                             <h2 class="app-article__header">Lorem Ipsum</h2>
                             <p class="app-article__description">Infinitely scalable, feature-rich and cloud-native data management and protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required.</p>
-                            <button type="button" class="btn btn--primary" aria-label="Open modal window">Button</button>
+                            <button type="button" data-target="exampleModal" class="btn btn--primary" aria-label="Open modal window">Button</button>
                         </div>
                     </article>
                 </section>
             </div>
         </main>
         <!-- END MAIN APP CONTENT -->
+
+        <!-- EXAMPLE MODAL WINDOW -->
+        <div id="exampleModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">   
+            <button type="button" id="closeModal" data-close="modal" aria-label="Close modal">x</button>
+            <div class="modal__content">
+                <h2 id="modal-title" class="modal__heading">Alert!</h2>
+                <p id="modal-description" class="modal__description">You have clicked <strong id="counterOutput">X times</strong> to related button.</p>
+                <button type="button" class="btn btn--secondary" data-clear="modal" aria-label="Reset modal counter">Reset</button>
+            </div>
+        </div>
+        <!-- END EXAMPLED MODAL WINDOW -->
 
         <!-- ATTACH SCRIPTS -->
         <script src="./dist/all.js"></script>

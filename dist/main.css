@@ -1,2 +1,2 @@
-body{background:#00f;color:#fff}
+.btn{font-size:1rem;font-weight:700;padding:1rem 2.5rem;border-radius:2rem;line-height:100%;cursor:pointer;transition:all .4s ease-in}.btn__primary{border:2px solid #e4c1ae;background:#e4c1ae;color:#fff}.btn__primary:hover{background:#fff;color:#e4c1ae}*,:after,:before{margin:0;padding:0;box-sizing:border-box}body{font-family:Roboto,sans-serif;font-weight:400;background:#fff}.container{max-width:1440px;width:100%}h2{line-height:120%}p{line-height:150%}
 /*# sourceMappingURL=main.css.map */

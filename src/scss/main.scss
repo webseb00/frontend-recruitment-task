@@ -1,7 +1,33 @@
-$blue: blue;
-$white: #fff;
+@use './components/variables' as *;
+@use './components/button';
+@use './components/modal';
+@use './components/utilities';
+
+
+// BASIC CSS STYLES
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background: $blue;
-  color: $white;
+  font-family: $fontRoboto;
+  font-weight: 400;
+  background: $white;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+}
+
+h2 {
+  line-height: 120%;
+}
+
+p {
+  line-height: 150%;
 }

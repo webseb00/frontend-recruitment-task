@@ -1,0 +1,71 @@
+@use '../abstracts/variables' as *;
+
+.app {
+  &-section {
+    margin-top: 3rem;
+
+    @media (min-width: $lg) {
+      margin-top: 6rem;
+    }
+  }
+
+  &-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+
+    @media (min-width: $lg) {
+      flex-direction: row;
+      width: 70%;
+    }
+
+    &__picture {
+      width: calc(10/12) * 100%;
+
+      img {
+        display: block;
+      }
+
+      @media (min-width: $sm) {
+        width: calc(8/12) * 100%;
+      }
+
+      @media (min-width: $lg) {
+        width: calc(7/12) * 100%;
+      }
+    }
+
+    &__content {
+      width: calc(10/12) * 100%;
+      margin-top: 1.5rem;
+
+      @media (min-width: $sm) {
+        width: calc(8/12) * 100%;
+      }
+
+      @media (min-width: $lg) {
+        width: calc(5/12) * 100%;
+        margin-left: 3rem;
+        margin-top: 0;
+      }
+
+      @media (min-width: $xl) {
+        margin-left: 6rem;
+      }
+    }
+
+    &__description {
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      text-align: justify;
+
+      @media (min-width: $lg) {
+        text-align: unset;
+      }
+    }
+  }
+}

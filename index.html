@@ -30,8 +30,8 @@
         <!-- END MAIN APP CONTENT -->
 
         <!-- EXAMPLE MODAL WINDOW -->
-        <div id="exampleModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description" style="display: none;">   
-            <button type="button" id="closeModal" class="btn__close" data-close="modal" aria-label="Close modal">
+        <div id="exampleModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">   
+            <button type="button" id="closeModal" class="modal__close" data-close="modal" aria-label="Close modal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                 </svg>
@@ -39,11 +39,10 @@
             <div class="modal__content">
                 <h2 id="modal-title" class="modal__heading">Alert!</h2>
                 <p id="modal-description" class="modal__description">You have clicked <strong id="counterOutput">X times</strong> to related button.</p>
-                <button type="button" class="btn btn__secondary" data-clear="modal" aria-label="Reset modal counter">Reset</button>
+                <button type="button" class="btn btn__secondary" data-clear="modal" aria-label="Reset modal counter" style="display: none;">Reset</button>
             </div>
         </div>
         <!-- END EXAMPLED MODAL WINDOW -->
-
         <!-- ATTACH SCRIPTS -->
         <script src="./dist/all.js"></script>
     </body>

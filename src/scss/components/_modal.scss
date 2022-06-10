@@ -1,0 +1,59 @@
+@use '../abstracts/variables' as *;
+
+.modal {
+  background: $white;
+  color: $dark;
+  max-width: 920px;
+  width: 100%;
+  padding: 1.5rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  
+  @media (min-width: $md) {
+    padding: 3.5rem 6rem;
+  }
+
+  &__close {
+    position: absolute;
+    top: 1.275rem;
+    right: 1.275rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    @media(min-width: $md) {
+      top: 2.875rem;
+      right: 2.875rem;
+    }
+    
+    svg { 
+      display: block;
+    }
+  }
+
+  &__description {
+    margin-top: 1.5rem;
+    font-weight: 300;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+}
+
+.modal-active {
+  overflow: hidden;
+  padding-right: 17px;
+}
+
+.modal-overlay {
+  position: fixed;
+  background: rgba($dark, .5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

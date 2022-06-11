@@ -16,12 +16,18 @@
                 <section class="app-section">
                     <article class="app-article">
                         <div class="app-article__picture">
-                            <img src="./images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1002.jpg" class="img-fluid" alt="Article Thumbnail" />
+                            <picture>
+                                <source media="(max-width: 576px)" srcset="./images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_1_1,c_fill,g_auto__c_scale,w_450.jpg">
+                                <source media="(max-width: 768px)" srcset="./images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_1_1,c_fill,g_auto__c_scale,w_767.jpg">
+                                <source media="(max-width: 992px)" srcset="./images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1002.jpg">
+                                <source media="(min-width: 1200px)" srcset="./images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1400.jpg">
+                                <img src="./images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_784.jpg" class="img-fluid" alt="Sunset at the beach">
+                            </picture>
                         </div>
                         <div class="app-article__content">
                             <h2 class="app-article__header">Lorem Ipsum</h2>
                             <p class="app-article__description">Infinitely scalable, feature-rich and cloud-native data management and protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required.</p>
-                            <button type="button" data-target="exampleModal" class="btn btn__primary" aria-label="Open modal window">Button</button>
+                            <button type="button" data-target="exampleModal" class="btn btn__primary btn-pill" aria-label="Open modal window">Button</button>
                         </div>
                     </article>
                 </section>
@@ -39,10 +45,10 @@
             <div class="modal__content">
                 <h2 id="modal-title" class="modal__heading">Alert!</h2>
                 <p id="modal-description" class="modal__description">You have clicked <strong id="counterOutput">X times</strong> to related button.</p>
-                <button type="button" class="btn btn__secondary" data-clear="modal" aria-label="Reset modal counter" style="display: none;">Reset</button>
             </div>
         </div>
-        <!-- END EXAMPLED MODAL WINDOW -->
+        <!-- END EXAMPLE MODAL WINDOW -->
+
         <!-- ATTACH SCRIPTS -->
         <script src="./dist/all.js"></script>
     </body>

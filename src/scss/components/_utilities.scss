@@ -2,3 +2,15 @@
   max-width: 100%;
   height: auto;
 }
+
+// ANIMATIONS
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@mixin fadeInAnimation {
+  animation-name: fadeIn;
+  animation-duration: .4s;
+  animation-timing-function: ease-in-out;
+}

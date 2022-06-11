@@ -4,11 +4,11 @@
   font-size: 1rem;
   font-weight: 700;
   padding: 1rem 2.5rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   line-height: 100%;
   cursor: pointer;
   transition: all .2s ease-in;
-
+  // PRIMARY BUTTON
   &__primary {
     border: 2px solid $primary;
     background: $primary;
@@ -24,24 +24,28 @@
       transform: translateY(4px);
     }
   }
-
+  // SECDONARY BUTTON
   &__secondary {
+    background: $secondary;
+    border: 2px solid $secondary;
+    color: $white;
 
+    &:hover,
+    &:active {
+      background: $white;
+      color: $secondary;
+    }
+
+    &:active {
+      transform: translateY(4px);
+    }
   }
 
-  &__close {
-    background: transparent;
-    border: unset;
-    font-size: 2rem;
-    color: $dark;
-    cursor: pointer;
-    width: 1.5rem;
-    height: 1.5rem;
+  &-pill {
+    border-radius: 2rem;
+  }
 
-    svg {
-      display: block;
-      margin: 0 auto;
-      
-    }
+  &-small {
+    padding: 0.8rem 2.4rem;
   }
 }

@@ -1,4 +1,5 @@
 @use '../abstracts/variables' as *;
+@use '../components/utilities' as *;
 
 .modal {
   background: $white;
@@ -11,6 +12,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
+  display: none;
   
   @media (min-width: $md) {
     padding: 3.5rem 6rem;
@@ -18,19 +20,21 @@
 
   &__close {
     position: absolute;
-    top: 1.275rem;
-    right: 1.275rem;
+    top: 1.25rem;
+    right: 1.25rem;
     background: transparent;
     border: none;
     cursor: pointer;
 
     @media(min-width: $md) {
-      top: 2.875rem;
-      right: 2.875rem;
+      top: 2.5rem;
+      right: 2.5rem;
     }
     
     svg { 
       display: block;
+      width: 1.5rem;
+      height: 1.5rem;
     }
   }
 
@@ -42,11 +46,24 @@
       font-weight: 600;
     }
   }
+
+  .btn {
+    margin-top: 1rem;
+    font-weight: 300;
+    box-shadow: $basic-shadow;
+
+    svg {
+      vertical-align: bottom;
+      margin-right: 5px;
+    }
+  }
+
+  @include fadeInAnimation;
 }
 
 .modal-active {
   overflow: hidden;
-  padding-right: 17px;
+  // padding-right: 17px;
 }
 
 .modal-overlay {
@@ -56,4 +73,6 @@
   left: 0;
   right: 0;
   bottom: 0;
+
+  @include fadeInAnimation;
 }

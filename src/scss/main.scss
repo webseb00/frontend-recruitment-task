@@ -18,6 +18,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  color: $dark;
+  background: $primary;
+}
+
 body {
   font-family: $fontRoboto;
   font-weight: 400;
@@ -30,6 +35,3 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 }
-
-
-

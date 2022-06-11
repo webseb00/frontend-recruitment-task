@@ -3,7 +3,7 @@ class Modal {
     this.modal = modal;
     this.modalID = modal.id;
     this.modalClosingElements = this.modal.querySelectorAll('[data-close="modal"]');
-    this.modalClickableElements = this.modal.querySelectorAll('a[href], button:not([disabled])');
+    this.modalClickableElements = null;
     this.modalOpenButton = document.querySelector(`[data-target='${this.modalID}']`);
     this.displayClicksCounter = this.modal.querySelector('#counterOutput');
     this.bodyDOM = document.querySelector('body');
@@ -31,9 +31,7 @@ class Modal {
     }
   }
 
-  saveCounter = () => {
-    localStorage.setItem(`${this.modalID}`, JSON.stringify(this.countButtonClicks));
-  }
+  saveCounter = () => localStorage.setItem(`${this.modalID}`, JSON.stringify(this.countButtonClicks));
 
   clearCounter = () => {
     this.countButtonClicks = 0;
@@ -42,44 +40,41 @@ class Modal {
     this.clearCounterButton.remove();
     this.clearCounterButton = null;
     this.modalClickableElements[0].focus();
-
     this.displayCounter();
   }
+  // Display and update counter
+  displayCounter = () => this.displayClicksCounter.textContent = `${this.countButtonClicks} times`;
 
-  displayCounter = () => {
-    this.displayClicksCounter.textContent = `${this.countButtonClicks} times`;
+// Methods responsible for keeping FOCUS only for clickable elements within modal window:
+  // 1. Move focus forward, when user press TAB key
+  moveFocusForward = (activeElement, e) => {
+    const getLastClickable = this.modalClickableElements[this.modalClickableElements.length-1];
+
+    if(activeElement === getLastClickable) {
+      e.preventDefault();
+      this.modalClickableElements[0].focus();
+    }
+  }
+  // 2. Move focus back, when user press SHIFT + TAB keys
+  moveFocusBackward = (activeElement, e) => {
+    const getFirstClickable = this.modalClickableElements[0];
+
+    if(activeElement === getFirstClickable) {
+      e.preventDefault();
+      this.modalClickableElements[this.modalClickableElements.length-1].focus();
+    }
   }
 
-  handleClickableElements = () => {
-    const clickableElements = this.modalClickableElements;
+  handleKeydown = e => {
+    this.modalClickableElements = this.modal.querySelectorAll('a[href], button:not([disabled])');
     
-    const moveFocusForward = (activeElement, e) => {
-      const getLastClickable = clickableElements[clickableElements.length-1];
-
-      if(activeElement === getLastClickable) {
-        e.preventDefault();
-        clickableElements[0].focus();
+    if(e.key === 'Tab') {
+      if(e.shiftKey) {
+        this.moveFocusBackward(document.activeElement, e);
+      } else {
+        this.moveFocusForward(document.activeElement, e);
       }
     }
-
-    const moveFocusBackward = (activeElement, e) => {
-      const getFirstClickable = clickableElements[0];
-
-      if(activeElement === getFirstClickable) {
-        e.preventDefault();
-        clickableElements[clickableElements.length-1].focus();
-      }
-    }
-
-    this.modal.addEventListener('keydown', e => {
-      if(e.key === 'Tab') {
-        if(e.shiftKey) {
-          moveFocusBackward(document.activeElement, e);
-        } else {
-          moveFocusForward(document.activeElement, e);
-        }
-      }
-    });
   }
 
   appendResetButton = () => {
@@ -97,7 +92,6 @@ class Modal {
     this.clearCounterButton = this.modal.querySelector('[data-clear="modal"]');
     // if reset button is appended, update clickables nodes
     this.modalClickableElements = this.modal.querySelectorAll('a[href], button:not([disabled])');
-    console.log(this.modalClickableElements);
   }
 
   appendDarkOverlay = () => {
@@ -116,9 +110,7 @@ class Modal {
     this.modal.style.display = 'block';
 
     this.appendDarkOverlay();
-
     this.modalClosingElements[0].focus();
-    this.handleClickableElements();
   }
 
   closeModal = () => {
@@ -131,21 +123,25 @@ class Modal {
     this.saveCounter();
 
     this.modalOpenButton.focus();
+    this.modalClickableElements = null;
+    // remove listener when modal is dismissed
+    this.modal.removeEventListener('keydown', this.handleKeydown);
   }
 
   handleCloseMethods = () => {
-    // get all clickables elements from modal, and attach listener to them
+    // get all clickables elements from modal, and attach event listener to them
     Array.from(this.modalClosingElements).forEach(el => el.addEventListener('click', this.closeModal));
     window.addEventListener('keydown', e => { if(e.key === 'Escape') this.closeModal() });
   }
-
+  // initialize basic functions for modal
   init = () => {
     this.modalOpenButton.addEventListener('click', () => {
       this.openModal();
       this.initCounter();
+      this.handleCloseMethods();
     });
-    this.handleCloseMethods();
 
+    this.modal.addEventListener('keydown', e => this.handleKeydown(e));
     this.modal.ariaHidden = true;
   }
 }

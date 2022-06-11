@@ -5,7 +5,7 @@
   background: $white;
   color: $dark;
   max-width: 920px;
-  width: 100%;
+  width: calc(100% - 1rem);
   padding: 1.5rem;
   position: fixed;
   top: 50%;
